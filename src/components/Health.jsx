@@ -1,0 +1,3 @@
+import { Server,Database,Activity,ShieldCheck } from "lucide-react";
+const rows=[["API Gateway","99.99%",Server],["Database","99.97%",Database],["Order Service","99.94%",Activity],["Security","100%",ShieldCheck]];
+export default function Health(){return <section className="panel"><div className="panel-head"><div><small>INFRASTRUCTURE</small><h2>System health</h2></div><b className="live">LIVE</b></div>{rows.map(([n,u,I])=><div className="service" key={n}><span className="service-icon"><I size={16}/></span><div><b>{n}</b><small>Operational</small></div><strong>{u}</strong><i className="ok"/></div>)}</section>}

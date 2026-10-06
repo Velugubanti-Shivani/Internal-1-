@@ -1,0 +1,6 @@
+import { AreaChart,Area,XAxis,YAxis,CartesianGrid,Tooltip,ResponsiveContainer } from "recharts";
+const data=[{d:"01",v:210},{d:"05",v:265},{d:"10",v:245},{d:"15",v:330},{d:"20",v:305},{d:"25",v:390},{d:"30",v:430}];
+export default function Revenue({crash=false}){
+ if(crash) throw new Error("Revenue analytics renderer failed.");
+ return <section className="panel chart"><div className="panel-head"><div><small>PERFORMANCE</small><h2>Revenue analytics</h2></div><select><option>Last 30 days</option></select></div><div className="chart-area"><ResponsiveContainer width="100%" height="100%"><AreaChart data={data}><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#7659ff" stopOpacity=".4"/><stop offset="100%" stopColor="#7659ff" stopOpacity="0"/></linearGradient></defs><CartesianGrid stroke="#202941" vertical={false}/><XAxis dataKey="d" stroke="#68728c" axisLine={false} tickLine={false}/><YAxis stroke="#68728c" axisLine={false} tickLine={false}/><Tooltip contentStyle={{background:"#10172a",border:"1px solid #29334d",borderRadius:8}}/><Area type="monotone" dataKey="v" stroke="#8b75ff" fill="url(#fill)" strokeWidth={3}/></AreaChart></ResponsiveContainer></div></section>;
+}
